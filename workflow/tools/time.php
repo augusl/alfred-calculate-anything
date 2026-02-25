@@ -255,7 +255,12 @@ class Time extends CalculateAnything implements CalculatorInterface
      */
     public function translateDate($query)
     {
-        $query = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $query);
+        if (!preg_match('/\p{Han}/u', $query)) {
+            $iconv_query = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $query);
+            if ($iconv_query !== false) {
+                $query = $iconv_query;
+            }
+        }
         $strs = $this->lang;
 
         if ($query == 'time') {

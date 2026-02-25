@@ -582,6 +582,11 @@ class CalculateAnything
             if (is_array($value)) {
                 continue;
             }
+            // Han-script keywords do not work with \b boundaries.
+            if (preg_match('/\p{Han}/u', $key)) {
+                $val = str_replace($key, ' ' . $value . ' ', $val);
+                continue;
+            }
             $key = $this->escapeKeywords($key);
             $val = preg_replace('/(^|\W)' . $key . '\b(\W|$)/i', ' ' . $value . ' ', $val);
         }

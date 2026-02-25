@@ -33,6 +33,7 @@ class Currency extends CalculateAnything implements CalculatorInterface
         $this->lang = $this->getTranslation('currency');
         $this->keywords = $this->getKeywords('currency');
         $this->stop_words = $this->getStopWords('currency');
+        $this->query = $this->keywordTranslation($this->query, $this->keywords);
         $this->currencyList = $this->currencies();
         $this->rates_cache_seconds = $this->getCacheDuration();
         $this->setUpdatingMessageDisplay(true);
