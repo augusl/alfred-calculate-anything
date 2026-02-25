@@ -13,10 +13,11 @@
  * @modify date 06-09-2020
  */
 
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+ini_set('display_errors', 'stderr');
+
 if (getenv('alfred_debug')) {
-    error_reporting(E_ALL);
     error_reporting(-1);
-    ini_set('error_reporting', E_ALL);
 }
 
 require_once __DIR__ . '/autoload.php';

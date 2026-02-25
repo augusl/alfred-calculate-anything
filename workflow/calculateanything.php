@@ -687,7 +687,7 @@ class CalculateAnything
             return $req;
         }
 
-        curl_close($curl);
+        unset($curl);
 
         if (empty($req)) {
             // print_r('CURL EMPTY RESPONSE: request to ' . $to . ' returned empty ');
