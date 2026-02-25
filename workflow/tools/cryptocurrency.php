@@ -648,8 +648,7 @@ class Cryptocurrency extends CalculateAnything implements CalculatorInterface
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
         $rates = curl_exec($curl);
-
-        curl_close($curl);
+        unset($curl);
 
         $rates = json_decode($rates, true);
 

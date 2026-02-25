@@ -759,9 +759,10 @@ class Color extends CalculateAnything implements CalculatorInterface
         $magenta = 255 - $g;
         $yellow = 255 - $b;
         $black = min($cyan, $magenta, $yellow);
-        $cyan = @(($cyan - $black) / (255 - $black)) * 255;
-        $magenta = @(($magenta - $black) / (255 - $black)) * 255;
-        $yellow = @(($yellow - $black) / (255 - $black)) * 255;
+        $divisor = 255 - $black;
+        $cyan = $divisor === 0 ? 0 : (($cyan - $black) / $divisor) * 255;
+        $magenta = $divisor === 0 ? 0 : (($magenta - $black) / $divisor) * 255;
+        $yellow = $divisor === 0 ? 0 : (($yellow - $black) / $divisor) * 255;
 
         $cmyk = [
             'c' => round($cyan / 255, 2 ) * 100,
