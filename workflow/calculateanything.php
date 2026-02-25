@@ -568,6 +568,11 @@ class CalculateAnything
     {
         $val = mb_strtolower($word, 'UTF-8');
         $keywords = $keywordsArray;
+        if (!empty($keywords)) {
+            uksort($keywords, function ($keyA, $keyB) {
+                return mb_strlen($keyB, 'UTF-8') - mb_strlen($keyA, 'UTF-8');
+            });
+        }
 
         if (!$val) {
             return $keywords;
@@ -580,6 +585,11 @@ class CalculateAnything
 
         foreach ($keywords as $key => $value) {
             if (is_array($value)) {
+                continue;
+            }
+            // Han-script keywords do not work with \b boundaries.
+            if (preg_match('/\p{Han}/u', $key)) {
+                $val = str_replace($key, ' ' . $value . ' ', $val);
                 continue;
             }
             $key = $this->escapeKeywords($key);

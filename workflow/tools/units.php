@@ -41,6 +41,7 @@ class Units extends CalculateAnything implements CalculatorInterface
         $this->lang = $this->getTranslation('units');
         $this->keywords = $this->getKeywords('units');
         $this->stop_words = $this->getStopWords('units');
+        $this->query = $this->keywordTranslation($this->query, $this->keywords);
         $this->fractionUnits = $this->fractionUnits();
 
         $this->buildUnitsData();

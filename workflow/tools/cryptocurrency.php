@@ -33,6 +33,7 @@ class Cryptocurrency extends CalculateAnything implements CalculatorInterface
         $this->lang = $this->getTranslation('crypto_currency');
         $this->keywords = $this->getKeywords('crypto_currency');
         $this->stop_words = $this->getStopWords('crypto_currency');
+        $this->query = $this->keywordTranslation($this->query, $this->keywords);
         $this->symbolsList = $this->symbols();
         $this->rates_cache_seconds = $this->getCacheDuration();
         $this->setUpdatingMessageDisplay(true);

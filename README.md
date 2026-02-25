@@ -13,7 +13,7 @@ There are several conversion workflows out there but I wanted a workflow that wo
 ## Features
 
 - **Natural language** - type `100 euros to dollars`, `100 euros in usd`, `100€ to $`, `100eur usd`, `100 euros a dolares` -- it does not matter, the same result will be displayed
-- **Multiple languages** - the workflow has support for natural language in English, Spanish and Swedish
+- **Multiple languages** - the workflow has support for natural language in English, Spanish, Swedish and Simplified Chinese
 - **Currency** - Up to 168 currencies
 - **Cryptocurrency** - Support for 5,000 cryptocurrencies
 - **Units** - `100 kilometers to meters` or `100 km to m` or simply `100km m`
@@ -520,6 +520,7 @@ Language   | Code
 English    | en_EN
 Spanish    | es_ES
 Swedish    | sv_SE
+Simplified Chinese | zh_CN
 
 To create your own translation, just follow these steps:
 

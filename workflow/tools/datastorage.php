@@ -37,6 +37,7 @@ class DataStorage extends CalculateAnything implements CalculatorInterface
         $this->lang = $this->getTranslation('datastorage');
         $this->keywords = $this->getKeywords('datastorage');
         $this->stop_words = $this->getStopWords('datastorage');
+        $this->query = $this->keywordTranslation($this->query, $this->keywords);
         $this->size_types = $this->sizeTypes();
         $this->match_regex = $this->matchRegex();
         $this->stop_words_regex = $this->getStopWordsString($this->stop_words, ' %s ');
