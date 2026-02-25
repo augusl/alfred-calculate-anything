@@ -13,6 +13,8 @@
  * @modify date 06-09-2020
  */
 
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+
 if (getenv('alfred_debug')) {
     error_reporting(E_ALL);
     error_reporting(-1);
